@@ -4,11 +4,11 @@ class locales($default="en_US.UTF-8", $available=["en_US.UTF-8 UTF-8"]) {
   }
 
   file { "/etc/locale.gen":
-    content => inline_template('<%= available.join("\n") %>'),
+    content => inline_template('<%= available.join("\n") + "\n" %>'),
   }
 
   file { "/etc/default/locale":
-    content => $default,
+    content => inline_template('<%= default + "\n" %>'),
   }
 
   exec { "locale-gen":
