@@ -8,7 +8,7 @@ class locales($default="en_US.UTF-8", $available=["en_US.UTF-8 UTF-8"]) {
   }
 
   file { "/etc/default/locale":
-    content => inline_template('<%= default + "\n" %>'),
+    content => inline_template('LANG=<%= default + "\n" %>'),
   }
 
   exec { "locale-gen":
