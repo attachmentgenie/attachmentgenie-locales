@@ -13,7 +13,7 @@
     "Modulefile": "f3295d9084c385b358f77605da0431aa",
     "README.md": "92ffc40e8e8d01c5a51084b567e01113",
     "Rakefile": "9b80b157fe8bf8ee3975c7dec8524204",
-    "manifests\\init.pp": "a65f275f7651ad379a861aaf8bae24e6",
+    "manifests\\init.pp": "a3c15bd3f25b71c1f5212737ce3d844f",
     "spec\\spec.opts": "eb547b31184006017b3f6d6e2f1bbc12",
     "spec\\spec_helper.rb": "967bc25e920cdefa7c53fc433c3fc057",
     "tests\\init.pp": "957610a18803053e5d4fea8d5a71bada"

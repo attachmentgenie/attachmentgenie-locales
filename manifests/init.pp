@@ -1,5 +1,5 @@
 class locales($default='en_US.UTF-8', $available=['en_US.UTF-8 UTF-8']) {
-  package { locales:
+  package { 'locales':
     ensure => present,
   }
 
