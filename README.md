@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/attachmentgenie/puppet-module-locales.png)](http://travis-ci.org/attachmentgenie/puppet-module-locales)
+
 Puppet Locales Module
 =====================
 
