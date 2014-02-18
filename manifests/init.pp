@@ -3,7 +3,12 @@ class locales($default_value='en_US.UTF-8', $available=['en_US.UTF-8 UTF-8']) {
     ensure => present,
   }
 
-  file { '/etc/locale.gen':
+  case $operatingsystem {
+    ubuntu: { $localegenfile = '/var/lib/locales/supported.d/local' }
+    default: { $localegenfile = '/etc/locale.gen' }
+  }
+
+  file { $localegenfile:
     content => inline_template('<%= @available.join("\n") + "\n" %>'),
   }
 
@@ -12,15 +17,15 @@ class locales($default_value='en_US.UTF-8', $available=['en_US.UTF-8 UTF-8']) {
   }
 
   exec { '/usr/sbin/locale-gen':
-    subscribe   => [File['/etc/locale.gen'], File['/etc/default/locale']],
+    subscribe   => [File[$localegenfile], File['/etc/default/locale']],
     refreshonly => true,
   }
 
   exec { '/usr/sbin/update-locale':
-    subscribe   => [File['/etc/locale.gen'], File['/etc/default/locale']],
+    subscribe   => [File[$localegenfile], File['/etc/default/locale']],
     refreshonly => true,
   }
 
-  Package[locales] -> File['/etc/locale.gen'] -> File['/etc/default/locale']
+  Package[locales] -> File[$localegenfile] -> File['/etc/default/locale']
   -> Exec['/usr/sbin/locale-gen'] -> Exec['/usr/sbin/update-locale']
 }
