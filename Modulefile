@@ -1,5 +1,5 @@
 name 'attachmentgenie-locales'
-version '1.0.3'
+version '1.0.4'
 
 author 'Eivind Uggedal <eivind@uggedal.com>'
 license 'MIT License'
