@@ -1,0 +1,14 @@
+{
+  "name": "attachmentgenie-locales",
+  "version": "1.0.5",
+  "author": "Eivind Uggedal <eivind@uggedal.com>",
+  "summary": "Puppet locales Module",
+  "license": "MIT License",
+  "source": "git://github.com/attachmentgenie/puppet-module-locales.git",
+  "project_page": "https://github.com/attachmentgenie/puppet-module-locales",
+  "issues_url": "https://github.com/attachmentgenie/puppet-module-locales/issues",
+  "description": "Module for configuring locales.\n\nTested on Debian GNU/Linux 6.0 Squeeze and Ubuntu 12.04 LTS with Puppet 2.7.\nPatches for other operating systems are welcome.",
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">=2.2.1"}
+  ]
+}
