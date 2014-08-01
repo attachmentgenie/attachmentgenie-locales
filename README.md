@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/attachmentgenie/puppet-module-locales.png)](http://travis-ci.org/attachmentgenie/puppet-module-locales)
+[![Build Status](https://secure.travis-ci.org/attachmentgenie/attachmentgenie-locales.png)](http://travis-ci.org/attachmentgenie/attachmentgenie-locales)
 
 Puppet Locales Module
 =====================
@@ -14,7 +14,7 @@ Installation
 
 Clone this repo to a locales directory under your Puppet modules directory:
 
-    git clone git://github.com/uggedal/puppet-module-locales.git locales
+    git clone git://github.com/uggedal/attachmentgenie-locales.git locales
 
 If you don't have a Puppet Master you can create a manifest file
 based on the notes below and run Puppet in stand-alone mode
