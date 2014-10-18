@@ -1,6 +1,6 @@
 {
   "name": "attachmentgenie-locales",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Eivind Uggedal <eivind@uggedal.com>",
   "summary": "Puppet locales Module",
   "license": "MIT License",
