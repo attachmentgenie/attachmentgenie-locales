@@ -5,16 +5,12 @@ Puppet Locales Module
 
 Module for configuring locales.
 
-Tested on Debian GNU/Linux 6.0 Squeeze and Ubuntu 10.4 LTS with
-Puppet 2.6. Patches for other operating systems are welcome.
-
-
 Installation
 ------------
 
 Clone this repo to a locales directory under your Puppet modules directory:
 
-    git clone git://github.com/uggedal/attachmentgenie-locales.git locales
+    git clone git://github.com/attachmentgenie/attachmentgenie-locales.git locales
 
 If you don't have a Puppet Master you can create a manifest file
 based on the notes below and run Puppet in stand-alone mode
@@ -35,6 +31,6 @@ You can override the default locale and available locales by including
 the module with this special syntax:
 
     class { locales:
-      default_value  => "nb_NO.UTF-8",
-      available      => ["nb_NO.UTF-8 UTF-8", "en_GB.UTF-8 UTF-8"]
+      default_value  => "en_US.UTF-8,
+      available      => ["en_US.UTF-8 UTF-8", "en_GB.UTF-8 UTF-8"]
     }
