@@ -1,9 +1,12 @@
-class locales($default_value='en_US.UTF-8', $available=['en_US.UTF-8 UTF-8']) {
+class locales(
+  $available     = ['en_US.UTF-8 UTF-8'],
+  $default_value = 'en_US.UTF-8',
+) {
   package { 'locales':
     ensure => present,
   }
 
-  case $operatingsystem {
+  case $::operatingsystem {
     ubuntu: { $localegenfile = '/var/lib/locales/supported.d/local' }
     default: { $localegenfile = '/etc/locale.gen' }
   }
