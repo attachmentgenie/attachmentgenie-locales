@@ -1,6 +1,6 @@
 {
   "name": "attachmentgenie-locales",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Bram Vogelaar <bram@attachmentgenie.com>",
   "summary": "Puppet locales Module",
   "license": "MIT",
@@ -9,9 +9,7 @@
   "issues_url": "https://github.com/attachmentgenie/attachmentgenie-locales/issues",
   "description": "Module for configuring locales.",
   "tags": [
-    "ssh",
-    "ssh-client",
-    "ssh-server"
+    "locale"
   ],
   "operatingsystem_support": [
     {
