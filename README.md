@@ -31,6 +31,6 @@ You can override the default locale and available locales by including
 the module with this special syntax:
 
     class { locales:
-      default_value  => "en_US.UTF-8,
+      default_value  => "en_US.UTF-8",
       available      => ["en_US.UTF-8 UTF-8", "en_GB.UTF-8 UTF-8"]
     }
