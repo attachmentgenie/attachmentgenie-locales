@@ -1,9 +1,6 @@
-pkg/
-Gemfile.lock
-vendor/
-spec/fixtures/
-.vagrant/
-.bundle/
 coverage/
-/.project
-.idea/
+Gemfile.lock
+log/
+pkg/
+spec/fixtures/
+vendor/
