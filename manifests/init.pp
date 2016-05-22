@@ -7,7 +7,12 @@ class locales(
   }
 
   case $::operatingsystem {
-    ubuntu: { $localegenfile = '/var/lib/locales/supported.d/local' }
+    ubuntu: {
+      case $::lsbdistcodename {
+        xenial: { $localegenfile = '/etc/locale.gen' }
+        default: { $localegenfile = '/var/lib/locales/supported.d/local' }
+      }
+    }
     default: { $localegenfile = '/etc/locale.gen' }
   }
 
