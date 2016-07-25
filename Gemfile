@@ -16,13 +16,13 @@ group :test do
   gem 'simplecov',               :require => false
   gem 'puppet_facts',            :require => false
   gem 'metadata-json-lint',      :require => false
+  gem 'puppet-strings',          :require => false
 end
 
 group :development do
   gem 'travis',          :require => false
   gem 'travis-lint',     :require => false
   gem 'guard-rake',      :require => false
-  gem 'puppet-strings',  :require => false
   gem 'redcarpet',       :require => false
 end
 
