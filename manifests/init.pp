@@ -1,39 +1,20 @@
-class locales(
-  $available     = ['en_US.UTF-8 UTF-8'],
-  $default_value = 'en_US.UTF-8',
-) {
-  package { 'locales':
-    ensure => present,
-  }
+class locales (
+  $available      = $::locales::params::available,
+  $default_value  = $::locales::params::default_value,
+  $localegenfile  = $::locales::params::localegenfile,
+  $package_ensure = $::locales::params::package_ensure,
+  $package_name   = $::locales::params::package_name,
+) inherits locales::params {
+  validate_array($available)
+  validate_string(
+    $default_value,
+    $package_ensure,
+    $package_name
+  )
+  validate_absolute_path($localegenfile)
 
-  case $::operatingsystem {
-    ubuntu: {
-      case $::lsbdistcodename {
-        xenial: { $localegenfile = '/etc/locale.gen' }
-        default: { $localegenfile = '/var/lib/locales/supported.d/local' }
-      }
-    }
-    default: { $localegenfile = '/etc/locale.gen' }
-  }
-
-  file { $localegenfile:
-    content => inline_template('<%= @available.join("\n") + "\n" %>'),
-  }
-
-  file { '/etc/default/locale':
-    content => template('locales/default_locales.erb')
-  }
-
-  exec { '/usr/sbin/locale-gen':
-    subscribe   => [File[$localegenfile], File['/etc/default/locale']],
-    refreshonly => true,
-  }
-
-  exec { '/usr/sbin/update-locale':
-    subscribe   => [File[$localegenfile], File['/etc/default/locale']],
-    refreshonly => true,
-  }
-
-  Package[locales] -> File[$localegenfile] -> File['/etc/default/locale']
-  -> Exec['/usr/sbin/locale-gen'] -> Exec['/usr/sbin/update-locale']
+  anchor { 'locales::begin': }  ->
+  class { 'locales::install': }  ->
+  class { 'locales::config': }   ->
+  anchor { 'locales::end': }
 }

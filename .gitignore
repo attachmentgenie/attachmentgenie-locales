@@ -1,6 +1,9 @@
+.kitchen/
+.librarian/
+.tmp/
 coverage/
-Gemfile.lock
 log/
 pkg/
 spec/fixtures/
 vendor/
+*.lock

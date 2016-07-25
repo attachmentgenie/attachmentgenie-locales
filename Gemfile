@@ -22,7 +22,7 @@ group :development do
   gem 'travis',          :require => false
   gem 'travis-lint',     :require => false
   gem 'guard-rake',      :require => false
-  gem 'puppet-strings',  :require => false, :git => 'https://github.com/puppetlabs/puppetlabs-strings.git'
+  gem 'puppet-strings',  :require => false
   gem 'redcarpet',       :require => false
 end
 
@@ -39,6 +39,14 @@ group :system_tests do
   gem 'beaker-puppet_install_helper',  :require => false
 end
 
+group :integration do
+  gem 'test-kitchen', '~> 1.4'
+  gem 'kitchen-vagrant'
+  gem 'kitchen-puppet'
+  gem 'librarian-puppet'
+  gem 'kitchen-inspec'
+  gem 'concurrent-ruby', '~> 0.9'
+end
 
 
 if facterversion = ENV['FACTER_GEM_VERSION']
