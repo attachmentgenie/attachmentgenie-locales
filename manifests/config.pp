@@ -5,7 +5,9 @@ class locales::config inherits locales {
     $::locales::localegenfile:
       content => "${_available_join}\n";
     '/etc/default/locale':
-      content => "LANG=${::locales::default_value}\nLC_CTYPE=${::locales::default_value}\nLC_ALL=${::locales::default_value}\n";
+      content => epp('locales/locale.epp', {
+        'default_value' => $::locales::default_value
+      });
   }
 
   exec {
