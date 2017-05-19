@@ -6,8 +6,8 @@ class locales (
   String               $package_name   = $::locales::params::package_name,
 ) inherits locales::params {
 
-  anchor { 'locales::begin': }  ->
-  class { 'locales::install': }  ->
-  class { 'locales::config': }   ->
-  anchor { 'locales::end': }
+  anchor { 'locales::begin': }
+  -> class { 'locales::install': }
+  -> class { 'locales::config': }
+  -> anchor { 'locales::end': }
 }
