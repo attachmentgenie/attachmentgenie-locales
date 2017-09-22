@@ -1,8 +1,12 @@
+# Class to manage locales parameters.
+#
+# Dont include this class directly.
+#
 class locales::params {
-  $available      = ['en_US.UTF-8 UTF-8']
-  $default_value  = 'en_US.UTF-8'
-  $package_ensure = present
-  $package_name   = 'locales'
+  $default_locale  = 'en_US.UTF-8'
+  $locales         = ['en_US.UTF-8 UTF-8']
+  $package_name    = 'locales'
+  $package_version = present
   case $::osfamily {
     'Debian': {
       case $::operatingsystem {

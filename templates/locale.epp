@@ -1,4 +1,4 @@
-<%- | String $default_value | -%>
-LANG=<%= $default_value %>
-LC_CTYPE=<%= $default_value %>
-LC_ALL=<%= $default_value %>
+<%- | String $locale | -%>
+LANG=<%= $locale %>
+LC_CTYPE=<%= $locale %>
+LC_ALL=<%= $locale %>

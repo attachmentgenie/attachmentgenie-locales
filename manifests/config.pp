@@ -1,21 +1,29 @@
+# Class to configure locales.
+#
+# Dont include this class directly.
+#
 class locales::config inherits locales {
-  $_available_join = $::locales::available.join("\n")
+  $_available_join = $::locales::locales.join("\n")
 
   file {
-    $::locales::localegenfile:
-      content => "${_available_join}\n";
-    '/etc/default/locale':
+    'locale genfile':
+      content => "${_available_join}\n",
+      path    => $::locales::localegenfile;
+    'locale defaults':
       content => epp('locales/locale.epp', {
-        'default_value' => $::locales::default_value
-      });
+        'locale' => $::locales::default_locale,
+      }),
+      path    =>  '/etc/default/locale';
   }
 
   exec {
-    '/usr/sbin/locale-gen':
-      subscribe   => File[$::locales::localegenfile, '/etc/default/locale'],
+    'generate locales':
+      command     => '/usr/sbin/locale-gen',
+      subscribe   => File['locale genfile', 'locale defaults'],
       refreshonly => true;
-    '/usr/sbin/update-locale':
-      subscribe   => File[$::locales::localegenfile, '/etc/default/locale'],
+    'update locale':
+      command     => '/usr/sbin/update-locale',
+      subscribe   => File['locale genfile', 'locale defaults'],
       refreshonly => true;
   }
 }
