@@ -13,6 +13,7 @@ class locales::params {
         ubuntu: {
           case $::lsbdistcodename {
             xenial: { $localegenfile = '/etc/locale.gen' }
+            bionic: { $localegenfile = '/etc/locale.gen' }
             default: { $localegenfile = '/var/lib/locales/supported.d/local' }
           }
         }
