@@ -6,7 +6,6 @@ describe 'locales' do
 
       context 'with defaults for all parameters' do
         it { is_expected.to contain_class('locales') }
-        it { is_expected.to contain_class('locales::params') }
         it { is_expected.to contain_anchor('locales::begin').that_comes_before('Class[locales::Install]') }
         it { is_expected.to contain_class('locales::install').that_comes_before('Class[locales::Config]') }
         it { is_expected.to contain_class('locales::config').that_comes_before('Anchor[locales::end]') }

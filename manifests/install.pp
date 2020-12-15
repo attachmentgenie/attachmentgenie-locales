@@ -1,7 +1,6 @@
 # Class to install locales.
 #
-# Dont include this class directly.
-#
+# @api private
 class locales::install inherits locales {
 
   package { 'locales':

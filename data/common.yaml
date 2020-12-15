@@ -1,1 +1,5 @@
 ---
+locales::default_locale: 'en_US.UTF-8'
+locales::locales: ['en_US.UTF-8 UTF-8']
+locales::package_name: 'locales'
+locales::package_version: present

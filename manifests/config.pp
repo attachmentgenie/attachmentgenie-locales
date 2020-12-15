@@ -1,7 +1,6 @@
 # Class to configure locales.
 #
-# Dont include this class directly.
-#
+# @api private
 class locales::config inherits locales {
   $_available_join = $::locales::locales.join("\n")
 
